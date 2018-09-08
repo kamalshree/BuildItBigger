@@ -23,7 +23,7 @@ public class MyJokes {
 
     public String getMyJokeList(){
         Random random = new Random();
-        String mmyRandomJokes = myJokeList.get(random.nextInt(myJokeList.size()));
-        return  mmyRandomJokes;
+        String myRandomJokes = myJokeList.get(random.nextInt(myJokeList.size()));
+        return  myRandomJokes;
     }
 }

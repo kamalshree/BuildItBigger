@@ -5,7 +5,6 @@ import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.AndroidTestCase;
-import android.util.Log;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -29,7 +28,6 @@ import org.junit.runner.RunWith;
 @LargeTest
 
 public class EndpointsAsyncTaskTestUnit extends AndroidTestCase {
-    String TAG = EndpointsAsyncTask.class.getSimpleName();
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule =
             new ActivityTestRule(MainActivity.class);
