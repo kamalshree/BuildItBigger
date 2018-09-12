@@ -15,6 +15,12 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.core.IsNot.not;
 
 /**
  * Created by kamalshree on 9/7/2018.
@@ -31,9 +37,12 @@ public class EndpointsAsyncTaskTestUnit{
 
 
     @Test
-    public void onButtonClicked() {
+    public void onButtonClicked() throws InterruptedException {
         Intents.init();
         onView(withId(R.id.button)).perform(click());
+        Thread.sleep(5000);
+        onView(withId(R.id.tv_jokes)).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.tv_jokes), not(withText(""))));
         intended(hasComponent(MyJokesActivity.class.getName()));
         Intents.release();
     }
